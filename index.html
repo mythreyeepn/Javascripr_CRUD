@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="crud.css">
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+    <div class="row" id="addForm">
+            <div class="col-4 col-m-12">
+                <table>
+                    <tr>
+                        <td>
+                            <form onsubmit="event.preventDefault(); onFormSubmit();" autocomplete="off" >
+                                <div>
+                                    <label>Name*</label>
+                                    <label class="validation-error hide" id="fullNameValidationError">This field Is required</label>
+                                    <input type="text" onblur="validate()" maxlength="40" name="fullName" id="fullName" placeholder="Please Enter  Name" >
+                                </div>
+                                <div>
+                                    <label>Age</label>
+                                    <label class="validation-error hide" id="AgeValidationError">Age has to be between 1 and 101</label>
+                                    <input type="number" onchange="checkLength()" name="age" id="age" placeholder="Please Enter Age">
+                                </div>
+                                <div>
+                                    <label>Occupation</label>
+                                    <input type="text"  name="occupation" maxlength="50" id="occupation" placeholder="Please Enter Occupation">
+                                </div>
+                             
+                                <div>
+                                    <label>SIN</label>
+                                    <label class="validation-error hide" id="SINValidationError">Enter 9 digit SIN with 2 dashes in Format 999-999-999</label>
+                                    <input type="text" onchange="checkSsn()" name="sin" id="sin" placeholder="Please Enter SIN">
+                                </div>
+                                <div class="form-action-buttons">
+                                    <input type="submit" value="submit">
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-m-12"></div>
+        <div class="col-2 col-m-12"></div>
+        <div class="col-4 col-m-12">
+            <input type="submit" value="Add" id='add_btn' onclick="addFunc()">
+
+        </div>
+    </div>
+    <div class="row" id="tabel_id">
+            <div class="col-10 col-m-12">
+                <table id="myTable">
+                    <tr>
+                        <td>
+                            <table class="list" id="employeeList">
+                                <thead>
+                                    <tr>
+                                        <th style="cursor: pointer;" onclick="sorttable(0)">Name</th>
+                                        <th>Age</th>
+                                        <th>Occupation</th>
+                                        <th>SIN</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+    
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+    
+
+    <script src="crud.js"></script>
+</body>
+</html>
